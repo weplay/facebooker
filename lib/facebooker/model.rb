@@ -4,7 +4,7 @@ module Facebooker
   # Since most Facebook API calls accept and return hashes of data (as XML), the Model module allows us to
   # directly populate a model's attributes given a Hash with matching key names.
   module Model
-    class UnboundSessionException < Exception; end
+    class UnboundSessionException < RuntimeError; end
     def self.included(includer)
       includer.extend ClassMethods
       includer.__send__(:attr_writer, :session)
